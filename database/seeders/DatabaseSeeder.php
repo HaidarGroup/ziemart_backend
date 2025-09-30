@@ -45,44 +45,44 @@ class DatabaseSeeder extends Seeder
     // }
 
     // database/seeders/DatabaseSeeder.php
-    public function run(): void
-    {
+public function run(): void
+{
+    // 1. entity dasar dulu
+    ClassModel::factory(5)->create();
+    Category::factory(3)->create();
+    Teacher::factory(5)->create();
+    Student::factory(10)->create();
+    Account::factory(10)->create();
+    Verification::factory(10)->create();
 
-        // bikin seller & product dulu
-        $sellers = Seller::factory(10)->create();
-        $products = Product::factory(20)->create();
+    // 2. produk
+    $products = Product::factory(20)->create();
 
-        // cara 1: pakai factory pivot langsung
-        Seller::factory(30)->create();
+    // 3. seller
+    $sellers = Seller::factory(10)->create();
 
-        // cara 2: attach manual dengan pivot
-        $sellers->each(function ($seller) use ($products) {
-            $seller->products()->attach(
-                $products->random(rand(1, 5))->pluck('id')->toArray()
-            );
-        });
+    // 4. attach product ke seller lewat pivot
+    $sellers->each(function ($seller) use ($products) {
+        $seller->products()->attach(
+            $products->random(rand(1, 5))->pluck('id')->toArray()
+        );
+    });
 
-        // entity dasar
-        ClassModel::factory(3)->create();
-        Teacher::factory(5)->create();   
-        Student::factory(10)->create();  
-        Account::factory(10)->create();  
-        Verification::factory(10)->create();
-        Category::factory(5)->create();
+    // 5. user roles
+    Buyer::factory(10)->create();
 
-        // produk & relasi
-        Product::factory(20)->create();
+    // 6. transaksi
+    Order::factory(10)->create();
+    OrderDetail::factory(20)->create();
+    Review::factory(15)->create();
 
-        // user roles
-        Buyer::factory(10)->create();
-        Seller::factory(5)->create();
+    // 7. admin
+    Admin::factory(3)->create();
 
-        // transaksi
-        Order::factory(10)->create();
-        OrderDetail::factory(20)->create();
-        Review::factory(15)->create();
+    // 8. optional user seeder
+    $this->call([
+        UserSeeder::class
+    ]);
+}
 
-        // admin
-        Admin::factory(3)->create();
-    }
 }
