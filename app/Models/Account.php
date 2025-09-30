@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Account extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'username',
+        'email',
+        'role',
+        'password',
+        'student_id',
+        'teacher_id',
+    ];
+
+    // Relasi ke student
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'student_id');
+    }
+
+    // Relasi ke teacher
+    public function teacher()
+    {
+        return $this->belongsTo(Teacher::class, 'teacher_id');
+    }
+
+    // Relasi ke buyer
+    public function buyer()
+    {
+        return $this->hasOne(Buyer::class, 'account_id');
+    }
+
+    // Relasi ke seller
+    public function seller()
+    {
+        return $this->hasOne(Seller::class, 'account_id');
+    }
+
+    // Relasi ke verifications
+    public function verifications()
+    {
+        return $this->hasMany(Verification::class, 'account_id');
+    }
+}
