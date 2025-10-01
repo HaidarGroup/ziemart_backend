@@ -15,9 +15,8 @@ class BuyerFactory extends Factory
     public function definition(): array
     {
         return [
+            'fullname' => $this->faker->name(),
             'phone_number' => $this->faker->unique()->phoneNumber(),
-            'student_id' => $this->faker->boolean() ? Student::inRandomOrder()->first()->id : null,
-            'teacher_id' => $this->faker->boolean() ? Teacher::inRandomOrder()->first()->id : null,
             'account_id' => Account::factory(),
         ];
     }

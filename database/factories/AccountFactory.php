@@ -16,10 +16,9 @@ class AccountFactory extends Factory
         return [
             'username' => $this->faker->unique()->userName(),
             'email' => $this->faker->unique()->safeEmail(),
-            'role' => $this->faker->randomElement(['admin', 'seller', 'buyer']),
+            'role' => $this->faker->randomElement(['seller', 'buyer']),
             'password' => bcrypt('password'),
-            'student_id' => $this->faker->boolean() ? Student::inRandomOrder()->first()->id : null,
-            'teacher_id' => $this->faker->boolean() ? Teacher::inRandomOrder()->first()->id : null,
         ];
     }
 }
+// test

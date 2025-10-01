@@ -15,18 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('email')->unique();
-            $table->enum('role', ['admin', 'seller', 'buyer']);
+            $table->enum('role', ['seller', 'buyer']);
             $table->string('password');
-            $table->foreignId('student_id')
-                ->nullable()
-                ->constrained('students')
-                ->cascadeOnDelete();
-
-            $table->foreignId('teacher_id')
-                ->nullable()
-                ->constrained('teachers')
-                ->cascadeOnDelete();
-
             $table->timestamps();
         });
 

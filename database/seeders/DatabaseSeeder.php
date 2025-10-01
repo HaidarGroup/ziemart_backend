@@ -48,10 +48,7 @@ class DatabaseSeeder extends Seeder
 public function run(): void
 {
     // 1. entity dasar dulu
-    ClassModel::factory(5)->create();
     Category::factory(3)->create();
-    Teacher::factory(5)->create();
-    Student::factory(10)->create();
     Account::factory(10)->create();
     Verification::factory(10)->create();
 
