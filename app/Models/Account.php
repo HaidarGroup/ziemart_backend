@@ -14,8 +14,6 @@ class Account extends Model
         'email',
         'role',
         'password',
-        'student_id',
-        'teacher_id',
     ];
 
 
