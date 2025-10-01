@@ -13,8 +13,6 @@ class Seller extends Model
         'store_name',
         'phone_number',
         'verification_id',
-        'student_id',
-        'teacher_id',
         'account_id',
     ];
 

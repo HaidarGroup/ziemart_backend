@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use App\Models\User;
 use Inertia\Inertia;
+use App\Models\Account;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AccountController;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -20,3 +22,4 @@ require __DIR__.'/auth.php';
 
 
 Route::get("/arsa", [UserController::class, 'index']);
+Route::get("/testing", [UserController::class, 'index']);

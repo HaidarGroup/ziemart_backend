@@ -11,9 +11,7 @@ class Buyer extends Model
 
     protected $fillable = [
         'phone_number',
-        'student_id',
-        'teacher_id',
-        'account_id',
+        'fullname'
     ];
 
 
