@@ -20,14 +20,6 @@ return new class extends Migration
                 ->constrained('verifications')
                 ->cascadeOnDelete();
 
-            $table->foreignId('student_id')
-                ->constrained('students')
-                ->cascadeOnDelete();
-
-            $table->foreignId('teacher_id')
-                ->constrained('teachers')
-                ->cascadeOnDelete();
-
             $table->foreignId('account_id')
                 ->constrained('accounts')
                 ->cascadeOnDelete();

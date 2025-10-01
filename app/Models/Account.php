@@ -18,17 +18,8 @@ class Account extends Model
         'teacher_id',
     ];
 
-    // Relasi ke student
-    public function student()
-    {
-        return $this->belongsTo(Student::class, 'student_id');
-    }
 
-    // Relasi ke teacher
-    public function teacher()
-    {
-        return $this->belongsTo(Teacher::class, 'teacher_id');
-    }
+
 
     // Relasi ke buyer
     public function buyer()

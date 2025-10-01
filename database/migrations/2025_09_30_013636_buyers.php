@@ -15,16 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('phone_number')->unique();
 
-            
-            $table->foreignId('student_id')
-                ->nullable()
-                ->constrained('students')
-                ->cascadeOnDelete();
-
-            $table->foreignId('teacher_id')
-                ->nullable()
-                ->constrained('teachers')
-                ->cascadeOnDelete();
+        
 
             $table->foreignId('account_id')
                 ->constrained('accounts')
