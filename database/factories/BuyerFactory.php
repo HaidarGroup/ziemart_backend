@@ -15,6 +15,7 @@ class BuyerFactory extends Factory
     public function definition(): array
     {
         return [
+            'fullname' => $this->faker->name(),
             'phone_number' => $this->faker->unique()->phoneNumber(),
             'account_id' => Account::factory(),
         ];
