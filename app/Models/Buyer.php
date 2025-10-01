@@ -16,17 +16,7 @@ class Buyer extends Model
         'account_id',
     ];
 
-    // Relasi ke student
-    public function student()
-    {
-        return $this->belongsTo(Student::class, 'student_id');
-    }
 
-    // Relasi ke teacher
-    public function teacher()
-    {
-        return $this->belongsTo(Teacher::class, 'teacher_id');
-    }
 
     // Relasi ke account
     public function account()

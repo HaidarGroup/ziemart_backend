@@ -20,8 +20,6 @@ class SellerFactory extends Factory
             'store_name' => $this->faker->unique()->company(),
             'phone_number' => $this->faker->unique()->phoneNumber(),
             'verification_id' => Verification::inRandomOrder()->first()->id,
-            'student_id' => Student::inRandomOrder()->first()->id,
-            'teacher_id' => Teacher::inRandomOrder()->first()->id,
             'account_id' => Account::inRandomOrder()->first()->id,
         ];
     }
