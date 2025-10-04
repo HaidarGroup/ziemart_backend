@@ -10,8 +10,9 @@ class Buyer extends Model
     use HasFactory;
 
     protected $fillable = [
+        'fullname',
         'phone_number',
-        'fullname'
+        'account_id'
     ];
 
 
